@@ -7,57 +7,32 @@ import gsap from "gsap";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { NAV_TEXT } from "@/lib/constants";
-import  { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import AudioButton from "../ui/AudioButton";
 
 export default function Navbar() {
-  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-  const [isIndicatorActive, setIsIndicatorActive] = useState(false);
+  // time
+  const [time, setTime] = useState("");
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [isNavVisible, setIsNavVisible] = useState(true);
-
-  const navContainerRef = useRef<HTMLDivElement | null>(null);
-  const audioElementRef = useRef<HTMLAudioElement | null>(null);
+  const [isVisible, setIsVisible] = useState(true);
 
   const { y: currentScrollY } = useWindowScroll();
 
   useEffect(() => {
-    if (currentScrollY === 0) {
-      setIsNavVisible(true);
-      // navContainerRef.current.classList.remove("floating-nav");
-    } else if (currentScrollY > lastScrollY) {
-      setIsNavVisible(false);
-      // navContainerRef.current.classList.add("floating-nav");
-    } else if (currentScrollY < lastScrollY) {
-      setIsNavVisible(true);
-      // navContainerRef.current.classList.add("floating-nav");
-    }
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 50) {
+        // scrolling down
+        setIsVisible(false);
+      } else {
+        // scrolling up
+        setIsVisible(true);
+      }
+      setLastScrollY(window.scrollY);
+    };
 
-    setLastScrollY(currentScrollY);
-  }, [currentScrollY, lastScrollY]);
-
-  useEffect(() => {
-    gsap.to(navContainerRef.current, {
-      y: isNavVisible ? 0 : -100,
-      opacity: isNavVisible ? 1 : 0,
-      duration: 0.2,
-    });
-  }, [isNavVisible]);
-
-  const toggleAudioIndicator = () => {
-    setIsAudioPlaying((prev) => !prev);
-    setIsIndicatorActive((prev) => !prev);
-  };
-
-  useEffect(() => {
-    if (isAudioPlaying) {
-      // audioElementRef.current.play();
-    } else {
-      // audioElementRef.current.pause();
-    }
-  }, [isAudioPlaying]);
-
-  // time
-  const [time, setTime] = useState("");
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   useEffect(() => {
     const updateTime = () => {
@@ -69,7 +44,7 @@ export default function Navbar() {
       setTime(formatted);
     };
 
-    updateTime(); // set immediately
+    updateTime();
     const interval = setInterval(updateTime, 1000);
 
     return () => clearInterval(interval);
@@ -80,34 +55,37 @@ export default function Navbar() {
   const text = NAV_TEXT[lang];
 
   return (
-    <motion.div initial={{ opacity: 0, y: -70 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2, duration: 1 }} className="border-b-1 fixed top-0 left-0 w-full">
-      <div className="padding-global bg-background">
-        <div className="py-[1.1em] grid grid-cols-5 items-center w-full">
-          <div className="col-span-1">fl1p</div>
-          <div className="col-span-3 flex items-center justify-center gap-4 text-xs uppercase">
-            {text.items.map((item) => (
-              <Link key={item.href} href={item.href} className="hover:underline">
-                {item.label}
-              </Link>
-            ))}
+    <AnimatePresence mode="wait">
+      {isVisible && (
+        <motion.div
+          initial={{ y: -70, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -100, opacity: 0 }}
+          transition={{ duration: 0.3 }} // remove delay:2 for instant response
+          className="fixed top-0 left-0 w-full z-50 p-3"
+        >
+          <div className="padding-global bg-background border rounded-md">
+            <div className="py-[1.1em] grid grid-cols-5 items-center w-full">
+              <div className="col-span-1">fl1p</div>
+              <div className="col-span-3 flex items-center justify-center gap-4 text-xs uppercase">
+                {text.items.map((item) => (
+                  <Link key={item.href} href={item.href} className="navbar-button">
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+              <div className="col-span-1 flex justify-end items-center gap-4">
+                <AudioButton />
+
+                <div className="text-sm">{time}</div>
+                <button onClick={() => setLang(lang === "en" ? "mn" : "en")} className="pl-4 border-l border-border text-sm cursor-pointer">
+                  {lang === "en" ? "EN" : "MN"}
+                </button>
+              </div>
+            </div>
           </div>
-          <div className="col-span-1 flex justify-end items-center gap-4">
-            <button onClick={toggleAudioIndicator} className="flex items-center cursor-pointer navbar-button">
-              <span className="text-[9px] uppercase">{text.sound}</span>
-              {/* <div onClick={toggleAudioIndicator} className="flex items-center space-x-0.5">
-              <audio src="/audio/loop.mp3" ref={audioElementRef} className="hidden" loop />
-              {[1, 2, 3, 4, 5].map((bar) => (
-                <div key={bar} className={cn("indicator-line", isIndicatorActive ? "active" : "")} style={{ animationDelay: `${bar * 0.1}s` }} />
-              ))}
-            </div> */}
-            </button>
-            <div className="text-sm">{time}</div>
-            <button onClick={() => setLang(lang === "en" ? "mn" : "en")} className="pl-4 border-l border-border text-sm cursor-pointer">
-              {lang === "en" ? "EN" : "MN"}
-            </button>
-          </div>
-        </div>
-      </div>
-    </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

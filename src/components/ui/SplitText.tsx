@@ -25,7 +25,7 @@ export default function SplitText({
               key={index}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: (lineIndex * 0.5) + index * delayPerChar, duration: 0.4 }}
+              transition={{ delay: (lineIndex * 0.5) + index * delayPerChar, duration: 0.2 }}
               style={{ display: "inline-block" }}
             >
               {char === " " ? "\u00A0" : char}

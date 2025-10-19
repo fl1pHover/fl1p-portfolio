@@ -164,6 +164,10 @@
     @apply px-[2em] py-[1em] rounded font-medium cursor-pointer;
   }
 
+  .small-label {
+    @apply text-[10px] uppercase;
+  }
+
   .home-wrapper {
     @apply text-gray-400 flex-col gap-4 md:gap-10 items-center sm:items-start;
   }

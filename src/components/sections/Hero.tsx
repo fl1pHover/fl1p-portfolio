@@ -21,7 +21,7 @@ export default function Hero() {
           <div className="px-[3rem] flex flex-col justify-end h-full items-center pt-[7em]">
             <motion.div initial={{ scale: 2, y: 200 }} animate={{ scale: 1, y: 0 }} transition={{ duration: initialDuration, delay: initialDelay, ease: "easeInOut" }} className="h-full flex flex-col justify-center">
               <h1>{text.name}</h1>
-              <SplitText text="Frontend <br /> Developer" className="text-6xl font-semibold text-white uppercase italic" />
+              <SplitText text="Frontend <br /> Developer" className="text-7xl font-semibold text-white uppercase italic" />
 
               {/* <h1 className="text-6xl font-bold uppercase italic">
                 Frontend <br />
@@ -32,7 +32,7 @@ export default function Hero() {
             </motion.div>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2 }} className="grid lg:grid-cols-2 items-end w-full">
               <div className="py-[7em]">
-                <video src={"/videos/loop_desktop.mp4"} autoPlay loop muted className="w-full h-full object-cover gpu-accelerated" preload="auto" crossOrigin="anonymous"></video>
+                <video src={"/videos/loop_desktop.mp4"} autoPlay loop muted className="w-full h-full object-cover gpu-accelerated" preload="auto"></video>
               </div>
 
               <div className="ml-2 pl-[3.5rem] pr-[1rem] space-y-10 relative py-[7em]">
@@ -49,7 +49,11 @@ export default function Hero() {
                   </div>
                 </div>
                 <motion.div initial={{ height: 0 }} animate={{ height: "100%" }} transition={{ duration: initialDuration, delay: 2, ease: "easeInOut" }} className="absolute top-0 left-0 h-full w-[1px] bg-border z-0"></motion.div>
-                <h1 className="text-lg font-medium">{text.desc}</h1>
+                <h1 className="text-lg font-medium">
+                  {text.desc}
+                  {/* <SplitText text={text.desc} /> */}
+                </h1>
+
                 <div className="space-x-4">
                   <Link href="/contact">
                     <FollowButton className="yellow-btn big-btn">{text.getInTouch}</FollowButton>
