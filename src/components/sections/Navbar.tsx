@@ -7,6 +7,7 @@ import gsap from "gsap";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { NAV_TEXT } from "@/lib/constants";
+import  { motion } from "framer-motion";
 
 export default function Navbar() {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
@@ -79,7 +80,7 @@ export default function Navbar() {
   const text = NAV_TEXT[lang];
 
   return (
-    <div className="border-b-1 fixed top-0 left-0 w-full">
+    <motion.div initial={{ opacity: 0, y: -70 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2, duration: 1 }} className="border-b-1 fixed top-0 left-0 w-full">
       <div className="padding-global bg-background">
         <div className="py-[1.1em] grid grid-cols-5 items-center w-full">
           <div className="col-span-1">fl1p</div>
@@ -107,6 +108,6 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
