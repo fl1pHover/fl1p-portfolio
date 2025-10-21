@@ -80,15 +80,15 @@ export default function Contact() {
             </div>
             <motion.div variants={fadeIn} initial="hidden" animate="visible" className="col-span-4 h-fit text-3xl grid grid-cols-2 gap-8 gap-y-12" style={{ padding: "4.5rem 2.5rem 3.5rem" }}>
               <div className="space-y-2">
-                <Label>What's your name?</Label>
+                <Label>What&apos;s your name?</Label>
                 <Input placeholder="Full Name" />
               </div>
               <div className="space-y-2">
-                <Label>What’s your email?</Label>
+                <Label>What&apos;s your email?</Label>
                 <Input placeholder="name@company.com" />
               </div>
               <div className="col-span-2 space-y-2">
-                <Label>What’s your brief?</Label>
+                <Label>What&apos;s your brief?</Label>
                 <Input placeholder="Write you brief here: I need ___ with this scope, pages, specific need ___." />
               </div>
               <div className="w-fit">

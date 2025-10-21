@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 export default function Intro() {
-  const [showEnter, setShowEnter] = useState(false);
   const [showContent, setShowContent] = useState(false);
 
   const handleEnterClick = () => {
@@ -33,23 +32,6 @@ export default function Intro() {
               <motion.div initial={{ width: 20 }} animate={{ width: "100%" }} transition={{ duration: 2 }} className="bg-white h-full"></motion.div>
             </div>
           </motion.div>
-
-          {/* {showEnter && (
-            <motion.button
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              whileHover={{
-                scale: 1.04,
-                transition: { duration: 0.2 },
-              }}
-              whileTap={{ scale: 0.96 }}
-              className="dark-btn rounded-full! px-10 py-3 hover:bg-border hover:border-white cursor-pointer duration-75"
-              onClick={handleEnterClick}
-            >
-              Enter
-            </motion.button>
-          )} */}
         </div>
       )}
 
