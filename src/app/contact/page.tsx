@@ -32,7 +32,8 @@ export default function Contact() {
             <motion.div className="grid lg:grid-cols-2 items-end w-full relative">
               <motion.div initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: initialDuration, delay: 2, ease: "easeInOut" }} className="absolute bottom-0 left-0 h-[1px] bg-border z-0"></motion.div>
               <div className="pb-[5rem] pt-[10rem] h-full align-bottom px-[3rem] ">
-                <SplitText text="Contact <br /> information" className="text-6xl font-semibold text-white uppercase" />
+                <SplitText text="Contact" className="bro-header text-5xl!" />
+                <SplitText text="information" className="bro-header text-5xl!" />
               </div>
 
               <div className="relative p-[5rem] text-lg pt-[10rem]">

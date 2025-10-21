@@ -19,9 +19,11 @@ export default function Hero() {
       <div className="xl:px-[4.37em]">
         <div className="border-x border-b border-border lg:h-screen lg:min-h-screen">
           <div className="px-[3rem] flex flex-col justify-end h-full items-center pt-[7em]">
-            <motion.div initial={{ scale: 2, y: 200 }} animate={{ scale: 1, y: 0 }} transition={{ duration: initialDuration, delay: initialDelay, ease: "easeInOut" }} className="h-full flex flex-col justify-center">
-              <h1>{text.name}</h1>
-              <SplitText text="Frontend <br /> Developer" className="text-7xl font-semibold text-white uppercase italic" />
+            <motion.div initial={{ scale: 1.5 }} animate={{ scale: 1 }} transition={{ duration: initialDuration, delay: initialDelay, ease: "easeInOut" }} className="h-full flex flex-col justify-center">
+              {/* <h1>{text.name}</h1> */}
+              <SplitText text="Creative" className="bro-header translate-x-[5%]" />
+              <SplitText text="Frontend" className="bro-header -translate-x-[15%]" />
+              <SplitText text="Developer" className="bro-header translate-x-[30%]" />
 
               {/* <h1 className="text-6xl font-bold uppercase italic">
                 Frontend <br />
@@ -31,11 +33,11 @@ export default function Hero() {
               </h1> */}
             </motion.div>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2 }} className="grid lg:grid-cols-2 items-end w-full">
-              <div className="py-[7em]">
-                <video src={"/videos/loop.mp4"} autoPlay loop muted className="w-full h-full object-cover "></video>
+              <div className="py-[6em]">
+                {/* <video src={"/videos/loop.mp4"} autoPlay loop muted className="w-full h-full object-cover "></video> */}
               </div>
 
-              <div className="ml-2 pl-[3.5rem] pr-[1rem] space-y-10 relative py-[7em]">
+              <div className="ml-2 pl-[3.5rem] pr-[1rem] space-y-10 relative py-[6em]">
                 <div className="bg-background absolute z-10 top-0 left-0 -translate-x-[50%] -translate-y-[50%] p-2">
                   <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 17" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true" role="img" className="size-4 ">
                     <path d="M2.41002 14.2237L13.7237 2.91001M0 8.54529H16M8.0453 16.5V0.5M2.36688 2.91001L13.6806 14.2237" stroke="currentColor" strokeWidth="1.5"></path>
