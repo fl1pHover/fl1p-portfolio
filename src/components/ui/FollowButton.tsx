@@ -1,8 +1,16 @@
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useRef } from "react";
+import { Button, type buttonVariants } from "./button";
+import type { VariantProps } from "class-variance-authority";
 
-export function FollowButton({ children, className }: { children: React.ReactNode; className?: string }) {
-  const ref = useRef<HTMLButtonElement>(null);
+interface FollowButtonProps
+  extends React.ComponentProps<typeof Button>,
+    VariantProps<typeof buttonVariants> {
+  className?: string;
+}
+
+export function FollowButton({ children, className, ...props }: FollowButtonProps) {
+  const ref = useRef<HTMLDivElement>(null);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -25,8 +33,13 @@ export function FollowButton({ children, className }: { children: React.ReactNod
   };
 
   return (
-    <motion.button ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} style={{ x: springX, y: springY }} className={className}>
-      {children}
-    </motion.button>
+    <motion.div
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ x: springX, y: springY }}
+    >
+      <Button {...props} className={className}>{children}</Button>
+    </motion.div>
   );
 }

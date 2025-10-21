@@ -11,20 +11,19 @@ import { AnimatePresence, motion } from "framer-motion";
 import AudioButton from "../ui/AudioButton";
 
 export default function Navbar() {
-  // time
   const [time, setTime] = useState("");
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
-
+  const [isVisible, setIsVisible] = useState(false); // эхэндээ харагдахгүй
   const { y: currentScrollY } = useWindowScroll();
 
+  // scroll logic
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY && window.scrollY > 50) {
-        // scrolling down
+        // доош гүйлгэхэд нуугдана
         setIsVisible(false);
       } else {
-        // scrolling up
+        // дээш гүйлгэхэд гарч ирнэ
         setIsVisible(true);
       }
       setLastScrollY(window.scrollY);
@@ -34,6 +33,15 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  // delay дараа эхний харагдалт
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 2000); // 2 секунд delay
+    return () => clearTimeout(timer);
+  }, []);
+
+  // цагийн logic
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
@@ -46,12 +54,10 @@ export default function Navbar() {
 
     updateTime();
     const interval = setInterval(updateTime, 1000);
-
     return () => clearInterval(interval);
   }, []);
 
   const { lang, setLang } = useLanguage();
-
   const text = NAV_TEXT[lang];
 
   return (
@@ -61,12 +67,14 @@ export default function Navbar() {
           initial={{ y: -70, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -100, opacity: 0 }}
-          transition={{ duration: 0.3 }} // remove delay:2 for instant response
+          transition={{ duration: 0.5 }} // remove delay:2 for instant response
           className="fixed top-0 left-0 w-full z-50 p-3"
         >
           <div className="padding-global bg-background border rounded-md">
             <div className="py-[1.1em] grid grid-cols-5 items-center w-full">
-              <div className="col-span-1">fl1p</div>
+              <Link href="/" className="col-span-1">
+                fl1p
+              </Link>
               <div className="col-span-3 flex items-center justify-center gap-4 text-xs uppercase">
                 {text.items.map((item) => (
                   <Link key={item.href} href={item.href} className="navbar-button">
