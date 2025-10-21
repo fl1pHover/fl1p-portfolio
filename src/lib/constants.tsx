@@ -1,4 +1,4 @@
-import { label, s } from "motion/react-client";
+import { ins, label, s } from "motion/react-client";
 
 export const HERO_TEXT = {
   en: {
@@ -99,3 +99,28 @@ export const TECH_LIST = [
     url: "https://greensock.com/gsap/",
   },
 ];
+
+
+export const EDUCATION_LIST = [
+  {
+    year: "2020-2025",
+    title: "Bachelor's Degree in Information Systems Management",
+    institution: "UFE",
+    url: "https://ufe.edu.mn/en/c/76?departmentId=13",
+    image: "/images/ufe.png",
+  },
+  {
+    year: "2025",
+    title: "Foundations of Web Development: CSS, Bootstrap, JS, React",
+    institution: "Udemy",
+    url: "https://www.udemy.com/certificate/UC-861b27e8-6751-466b-b1b5-94f435d4fb0d/",
+    image: "/images/udemy.jpg",  
+  },
+  {
+    year: "2025",
+    title: "Introduction of Front-End development",
+    institution: "Meta",
+    url: "https://www.coursera.org/account/accomplishments/certificate/TMDDU2Z91FA8",
+    image: "/images/coursera.png",  
+  }
+]

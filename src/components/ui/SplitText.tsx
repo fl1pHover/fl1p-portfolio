@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-
+import { useInView } from "motion/react"
 interface SplitTextProps {
   text: string;
   className?: string;

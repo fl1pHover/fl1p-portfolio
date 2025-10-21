@@ -15,7 +15,7 @@ export default function Hero() {
   const initialDuration = 1;
 
   return (
-    <section className="h-screen padding-bigger">
+    <section data-scroll-section className="h-screen padding-bigger">
       <div className="xl:px-[4.37em]">
         <div className="border-x border-b border-border lg:h-screen lg:min-h-screen">
           <div className="px-[3rem] flex flex-col justify-end h-full items-center pt-[7em]">
@@ -32,7 +32,7 @@ export default function Hero() {
             </motion.div>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2 }} className="grid lg:grid-cols-2 items-end w-full">
               <div className="py-[7em]">
-                <video src={"/videos/loop_desktop.mp4"} autoPlay loop muted className="w-full h-full object-cover gpu-accelerated" preload="auto"></video>
+                <video src={"/videos/loop.mp4"} autoPlay loop muted className="w-full h-full object-cover "></video>
               </div>
 
               <div className="ml-2 pl-[3.5rem] pr-[1rem] space-y-10 relative py-[7em]">
@@ -54,12 +54,12 @@ export default function Hero() {
                   {/* <SplitText text={text.desc} /> */}
                 </h1>
 
-                <div className="space-x-4">
+                <div className="space-x-4 flex">
                   <Link href="/contact">
                     <FollowButton className="yellow-btn big-btn">{text.getInTouch}</FollowButton>
                   </Link>
-                  <Link href="/contact">
-                    <FollowButton className="dark-btn big-btn">{text.seeWork}</FollowButton>
+                  <Link href="/work">
+                    <FollowButton variant={"outline"} className="dark-btn big-btn">{text.seeWork}</FollowButton>
                   </Link>
                 </div>
               </div>
@@ -67,6 +67,8 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      
     </section>
   );
 }

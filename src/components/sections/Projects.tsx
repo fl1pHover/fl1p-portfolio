@@ -2,58 +2,95 @@
 
 import { cn } from "@/lib/utils";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
-const projects = [{ color: "bg-white" }, { color: "bg-red-500" }, { color: "bg-green-500" }, { color: "bg-blue-500" }];
+const projects = [
+  { color: "bg-white", img: "/videos/project-1.gif" },
+  { color: "bg-red-500", img: "/videos/project-2.gif" },
+  { color: "bg-green-500", img: "/videos/project-3.gif" },
+  { color: "bg-blue-500", img: "/videos/project-4.gif" },
+];
 
 export default function ProjectsSection() {
   const sectionRef = useRef<HTMLElement>(null);
 
-  // Projects секшн top хүрэхээс эхлээд scroll прогресс
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start start", "end end"], // start start = секшн top viewport top-той таарсан үед
+    offset: ["start start", "end end"],
   });
 
-  // scrollYProgress 0->1 байх үед background color-ыг map хийх
   const bgColor = useTransform(
     scrollYProgress,
-    [0, 0.05, 0.95, 1], // эхний 5% дээр өнгө солигдох
-    ["#000000", "#5542ff", "#5542ff", "#000000"] // хар -> эхний card color -> last card -> хар
+    [0, 0.05, 0.95, 1],
+    ["#0a090f", "#0a090f", "#0a090f", "#0a090f"]
   );
 
-  // scroll өөрчлөгдөх бүрт body background-ыг update
-  bgColor.onChange((v) => {
-    document.body.style.backgroundColor = v;
-  });
-
   return (
-    <motion.section ref={sectionRef} style={{ backgroundColor: bgColor }} className="relative padding-bigger pt-20">
-      {projects.map((project, i) => (
-        <div key={i} className={cn("sticky top-10")}>
-          <StickyCard color={project.color} isLast={i === projects.length - 1} />
-        </div>
-      ))}
+    <motion.section
+      ref={sectionRef}
+      style={{ backgroundColor: bgColor }}
+      className="relative pt-40"
+    >
+      <div className="relative">
+        {projects.map((project, i) => (
+          <StickyCard
+            key={i}
+            index={i}
+            color={project.color}
+            img={project.img}
+            total={projects.length}
+          />
+        ))}
+      </div>
     </motion.section>
   );
 }
 
-function StickyCard({ color, isLast }: { color: string; isLast: boolean }) {
+function StickyCard({
+  color,
+  img,
+  index,
+  total,
+}: {
+  color: string;
+  img: string;
+  index: number;
+  total: number;
+}) {
   const ref = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "center center", "end start"],
+    offset: ["start end", "start center", "center center"],
   });
 
-  const rotateX = useTransform(scrollYProgress, [0, 0.5, 1], [15, 0, -10]);
-
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.05, 1, 1]);
+  // Tilt + Scale + Fade + Move
+  const rotateX = useTransform(scrollYProgress, [0, 0.9, 1], [100, 0,  0]);
+  const y = useTransform(scrollYProgress, [0, 0.5, 1], [100, 0, -50]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [2, 1.3, 0.9]);
 
   return (
-    <div ref={ref}>
-      <motion.div style={{ rotateX, scale }} className={`${isLast ? "" : "sticky top-10"} h-[90vh] w-full rounded-2xl overflow-hidden ${color} shadow-xl`}>
-        <img src="/videos/project-1.gif" className="w-full h-full object-cover will-change-transform"  />
+    <div ref={ref} className="sticky top-0 h-[100vh] py-10 w-screen overflow-x-hidden">
+      <motion.div
+        style={{
+          rotateX,
+          y,
+          scale,
+          transformPerspective: 1200,
+          transformOrigin: "bottom center",
+          zIndex: total - index,
+        }}
+        transition={{ stiffness: 100}}
+        className={cn(
+          "h-[80vh] w-[90%] mx-auto rounded-2xl overflow-hidden shadow-2xl will-change-transform transition-transform",
+          color
+        )}
+      >
+        <img
+          src={img}
+          alt={`Project ${index}`}
+          className="w-full h-full object-cover"
+        />
       </motion.div>
     </div>
   );

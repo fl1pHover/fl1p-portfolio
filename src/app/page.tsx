@@ -25,7 +25,7 @@ export default function Intro() {
               duration: 4,
               times: [0, 0.25, 0.75, 1],
             }}
-            onAnimationComplete={() => setShowEnter(true)}
+            onAnimationComplete={handleEnterClick}
             className="flex flex-col items-center gap-4"
           >
             <h1>Welcome to my Portfolio</h1>
@@ -34,7 +34,7 @@ export default function Intro() {
             </div>
           </motion.div>
 
-          {showEnter && (
+          {/* {showEnter && (
             <motion.button
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -49,7 +49,7 @@ export default function Intro() {
             >
               Enter
             </motion.button>
-          )}
+          )} */}
         </div>
       )}
 
