@@ -8,7 +8,6 @@ import SplitText from "@/components/ui/SplitText";
 import AniDiv from "@/components/ui/AniDiv";
 import { fadeIn } from "@/lib/animations";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { FollowButton } from "@/components/ui/FollowButton";
 import { Label } from "@/components/ui/label";
 

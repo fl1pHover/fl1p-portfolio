@@ -1,9 +1,7 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useWindowScroll } from "react-use";
-import gsap from "gsap";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { NAV_TEXT } from "@/lib/constants";

@@ -1,8 +1,6 @@
-import React from "react";
 import { motion } from "framer-motion";
 import TechCard from "../ui/TechCard";
 import { TECH_LIST, TECH_TEXT } from "@/lib/constants";
-import { label } from "motion/react-client";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Techs() {
