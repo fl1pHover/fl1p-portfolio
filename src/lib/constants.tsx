@@ -1,4 +1,5 @@
 import { ins, label, s } from "motion/react-client";
+import { title } from "process";
 
 export const HERO_TEXT = {
   en: {
@@ -40,11 +41,11 @@ export const NAV_TEXT = {
 
 export const TECH_TEXT = {
   en: {
-    title: "Technologies I Use & My Experiences",
+    title: "Technologies I Use & Learn",
     desc: "Here are some of the technologies and tools I work with:",
   },
   mn: {
-    title: "Би ашигладаг технологиуд & туршлага",
+    title: "Ашигладаг & сурч байгаа технологиуд",
     desc: "Энд би ашигладаг зарим технологи ба хэрэгслүүд байна:",
   },
 } as const;
@@ -100,7 +101,6 @@ export const TECH_LIST = [
   },
 ];
 
-
 export const EDUCATION_LIST = [
   {
     year: "2020-2025",
@@ -114,13 +114,70 @@ export const EDUCATION_LIST = [
     title: "Foundations of Web Development: CSS, Bootstrap, JS, React",
     institution: "Udemy",
     url: "https://www.udemy.com/certificate/UC-861b27e8-6751-466b-b1b5-94f435d4fb0d/",
-    image: "/images/udemy.jpg",  
+    image: "/images/udemy.jpg",
   },
   {
     year: "2025",
     title: "Introduction of Front-End development",
     institution: "Meta",
     url: "https://www.coursera.org/account/accomplishments/certificate/TMDDU2Z91FA8",
-    image: "/images/coursera.png",  
-  }
-]
+    image: "/images/coursera.png",
+  },
+];
+
+export const FOOTER_TEXT = {
+  en: [
+    {
+      title: "OVERVIEW",
+      items: [
+        { id: "01", label: "work", href: "/work" },
+        { id: "03", label: "about", href: "/about" },
+        { id: "04", label: "contact", href: "/contact" },
+      ],
+    },
+    {
+      title: "CONNECT",
+      items: [
+        { id: "09", label: "LINKEDIN", href: "/work" },
+        { id: "10", label: "YOUTUBE", href: "/work" },
+        { id: "11", label: "INSTAGRAM", href: "/work" },
+        { id: "12", label: "TWITTER", href: "/work" },
+      ],
+    },
+    {
+      title: "_",
+      items: [
+        { id: "13", label: "WEBFLOW PARTNER" },
+        { id: "14", label: "WEBFLOW CLONABLES" },
+        { id: "15", label: "AWWWARDS" },
+      ],
+    },
+  ],
+  mn: [
+    {
+      title: "Цэс",
+      items: [
+        { id: "01", label: "Ажлууд", href: "/work"  },
+        { id: "03", label: "Тухай", href: "/about"  },
+        { id: "04", label: "Холбоо барих", href: "/contact"  },
+      ],
+    },
+    {
+      title: "Холбоо барих",
+      items: [
+        { id: "09", label: "LINKEDIN", href: "/work" },
+        { id: "10", label: "YOUTUBE", href: "/work" },
+        { id: "11", label: "INSTAGRAM", href: "/work" },
+        { id: "12", label: "TWITTER", href: "/work" },
+      ],
+    },
+    {
+      title: "_",
+      items: [
+        { id: "13", label: "WEBFLOW PARTNER" },
+        { id: "14", label: "WEBFLOW CLONABLES" },
+        { id: "15", label: "AWWWARDS" },
+      ],
+    },
+  ],
+};

@@ -36,7 +36,7 @@ export default function Techs() {
           ))}
         </motion.div>
       </div>
-      <div className="grid grid-cols-8">
+      <div className="grid grid-cols-4 md:grid-cols-8">
         {TECH_LIST.map((item, i) => {
           return (
             <div key={i}>

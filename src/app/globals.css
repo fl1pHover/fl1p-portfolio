@@ -142,6 +142,7 @@ html.has-scroll-dragging {
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
   --primary: #f8ff31;
+  --purple: #5542ff;
   --primary-foreground: #f8ff31;
   --secondary: oklch(0.968 0.007 247.896);
   --secondary-foreground: oklch(0.208 0.042 265.755);
@@ -223,7 +224,11 @@ html.has-scroll-dragging {
   }
 
   .padding-bigger {
-    @apply px-[4.37rem];
+    @apply px-[1.5rem] lg:px-[4.37rem];
+  }
+
+  .padding-inner {
+    @apply xl:px-[4.37em]
   }
 
   .navbar-button {

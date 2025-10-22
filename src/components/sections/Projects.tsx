@@ -37,13 +37,13 @@ export default function ProjectsSection() {
 
       {/* Fixed thumbnail + project name */}
       {active !== null && (
-        <div className="fixed left-8 bottom-8 aspect-2/1 h-50 z-50 flex flex-col backdrop-blur-xl bg-background/40 rounded border-white/40 border p-5 space-y-2">
+        <div className="fixed left-4 sm:w-auto lg:left-8 bottom-8 aspect-2/1 h-50 z-50 flex flex-col backdrop-blur-xl bg-background/40 rounded border-white/40 border p-5 space-y-2 w-[80vw]">
           {/* <img
             src={projects[active].img}
             alt={`Project ${active}`}
             className="w-full h-full object-cover rounded-lg shadow-lg"
           /> */}
-          <h1 className="mt-2 text-foreground text-3xl font-bold font-brockmann">{projects[active].name}</h1>
+          <h1 className="mt-2 text-foreground text-lg lg:ext-3xl font-bold font-brockmann">{projects[active].name}</h1>
           <p className="text-sm mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, cumque.</p>
           <FollowButton asChild><Link href={"/"} target="_blank">View Site</Link></FollowButton>
         </div>
@@ -81,7 +81,7 @@ function StickyCard({
     } else if (v < 0.4 && index === 0) {
       setActive(null); // эхэндээс өмнө нь square байхгүй
     } 
-    else if (v > 0.6 && index === 0) {
+    else if (v && index === 0) {
       setActive(null); // эхэндээс хойш нь square байхгүй
     }
   });
