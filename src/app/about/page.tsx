@@ -102,7 +102,7 @@ export default function About() {
         </div>
         <div className="p-0 sm:pl-10 lg:pl-20 flex flex-col border-l py-10 lg:py-20 group">
           {edu.map((item, index) => (
-            <Link href="/" target="_blank" onMouseEnter={() => setActiveEdu(index)} onMouseLeave={() => setActiveEdu(null)} key={index} className="px-4 py-8 hover:bg-accent duration-200 flex items-center text-sm border-b-[0.3px]">
+            <Link href={item.url} target="_blank" onMouseEnter={() => setActiveEdu(index)} onMouseLeave={() => setActiveEdu(null)} key={index} className="px-4 py-8 hover:bg-accent duration-200 flex items-center text-sm border-b-[0.3px]">
               <div className="w-[200px] text-[10px] md:text-base">{item.year}</div>
               <div className="w-full text-xs md:text-base">{item.title}</div>
               <div className="w-[200px] flex items-center gap-2 text-xs md:text-base">

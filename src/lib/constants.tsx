@@ -1,14 +1,14 @@
 import { ins, label, s } from "motion/react-client";
 import { title } from "process";
 
-export const INTRO_TEXT ={
+export const INTRO_TEXT = {
   en: {
-    title: "Welcome to my Portfolio"
+    title: "Welcome to my Portfolio",
   },
   mn: {
-    title: "Миний портфолиод тавтай морил"
-  }
-}
+    title: "Миний портфолиод тавтай морил",
+  },
+};
 
 export const HERO_TEXT = {
   en: {
@@ -305,7 +305,7 @@ export const FAQ_TEXT = {
     list: [
       {
         question: "What university did you graduate from?",
-        answer: "I graduated from the National University of Finance and Economics (NUFE), majoring in Information Systems. Through my coursework, I gained in-depth knowledge in programming, UI/UX design, business strategy, and IT management.",
+        answer: "I graduated from the University of Finance and Economics (UFE), majoring in Information Systems. Through my coursework, I gained in-depth knowledge in programming, UI/UX design, business strategy, and IT management.",
       },
       {
         question: "Where did you learn to code?",
@@ -343,7 +343,8 @@ export const FOOTER_TEXT = {
     {
       title: "overview",
       items: [
-        { id: "01", label: "work", href: "/work" },
+        { id: "01", label: "home", href: "/" },
+        { id: "02", label: "work", href: "/work" },
         { id: "03", label: "about", href: "/about" },
         { id: "04", label: "contact", href: "/contact" },
       ],
@@ -351,16 +352,16 @@ export const FOOTER_TEXT = {
     {
       title: "social",
       items: [
-        { id: "09", label: "linkedin", href: "https://www.linkedin.com/in/bishubazar-sosorburam-767410226/" },
-        { id: "11", label: "instagram", href: "https://www.instagram.com/s_bishu04/" },
-        { id: "12", label: "telegram", href: "https://t.me/fl1ppppp" },
+        { id: "05", label: "linkedin", href: "https://www.linkedin.com/in/bishubazar-sosorburam-767410226/" },
+        { id: "06", label: "instagram", href: "https://www.instagram.com/s_bishu04/" },
+        { id: "07", label: "telegram", href: "https://t.me/fl1ppppp" },
       ],
     },
     {
       title: "contact",
       items: [
-        { id: "13", label: "96208458", href: "tel:+97696208458" },
-        { id: "14", label: "bishu.hover@gmail.com", href: "mailto:bishu.hover@gmail.com" },
+        { id: "08", label: "96208458", href: "tel:+97696208458" },
+        { id: "09", label: "bishu.hover@gmail.com", href: "mailto:bishu.hover@gmail.com" },
       ],
     },
   ],
@@ -368,6 +369,7 @@ export const FOOTER_TEXT = {
     {
       title: "цэс",
       items: [
+        { id: "01", label: "Нүүр", href: "/" },
         { id: "01", label: "Ажлууд", href: "/work" },
         { id: "03", label: "Тухай", href: "/about" },
         { id: "04", label: "Холбогдох", href: "/contact" },
@@ -376,16 +378,16 @@ export const FOOTER_TEXT = {
     {
       title: "сошиал",
       items: [
-        { id: "09", label: "linkedin", href: "https://www.linkedin.com/in/bishubazar-sosorburam-767410226/" },
-        { id: "11", label: "instagram", href: "https://www.instagram.com/s_bishu04/" },
-        { id: "12", label: "telegram", href: "https://t.me/fl1ppppp" },
+        { id: "05", label: "linkedin", href: "https://www.linkedin.com/in/bishubazar-sosorburam-767410226/" },
+        { id: "06", label: "instagram", href: "https://www.instagram.com/s_bishu04/" },
+        { id: "07", label: "telegram", href: "https://t.me/fl1ppppp" },
       ],
     },
     {
       title: "холбогдох",
       items: [
-        { id: "13", label: "96208458", href: "tel:+97696208458" },
-        { id: "14", label: "bishu.hover@gmail.com", href: "mailto:bishu.hover@gmail.com" },
+        { id: "09", label: "96208458", href: "tel:+97696208458" },
+        { id: "09", label: "bishu.hover@gmail.com", href: "mailto:bishu.hover@gmail.com" },
         // { id: "15", label: "AWWWARDS", href: "/work" },
       ],
     },

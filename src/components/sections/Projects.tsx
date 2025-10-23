@@ -87,7 +87,7 @@ function StickyCard({
   });
 
   return (
-    <div ref={ref} className="sticky top-0 h-[100vh] py-10 w-screen overflow-x-hidden">
+    <div ref={ref} className="sticky top-0 h-[100vh] py-32 w-screen overflow-x-hidden flex justify-center items-center">
       <motion.div
         style={{
           rotateX,
@@ -99,11 +99,11 @@ function StickyCard({
         }}
         transition={{ stiffness: 10000 }}
         className={cn(
-          "h-full w-[90%] mx-auto rounded-2xl overflow-hidden shadow-2xl will-change-transform transition-transform",
+          "aspect-square sm:aspect-16/9 w-[90%] sm:w-[80%] mx-auto rounded-2xl overflow-hidden shadow-2xl will-change-transform transition-transform",
           project.color
         )}
       >
-        <img src={project.img} alt={project.name} className="w-full h-full object-cover" />
+        <img src={project.img} alt={project.name} className="w-full h-full object-cover object-top" />
       </motion.div>
     </div>
   );
