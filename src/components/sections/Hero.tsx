@@ -34,12 +34,12 @@ export default function Hero() {
               <div className="pb-[4em] flex justify-center relative">
                 {/* <FollowBot /> */}
                 <div className="relative w-[65%]">
-
-                <div className="p-[1px] aspect-square bg-white relative" style={{ clipPath: "polygon(99% 0, 99% 6%, 100% 7%, 100% 100%, 6% 100%, 0 94%, 0 0)" }}>
-                  <Image src={"/images/pixel.png"} alt="Profile image" width={600} height={600} className="size-full" style={{ clipPath: "polygon(99% 0, 99% 6%, 100% 7%, 100% 100%, 6% 100%, 0 94%, 0 0)" }} />
-                </div>
-                <Label size='xs' className="-rotate-90 origin-left absolute -left-4 z-20 bottom-4 text-xs!">Avatar__238</Label>
-
+                  <div className="p-[1px] aspect-square bg-white relative" style={{ clipPath: "polygon(99% 0, 99% 6%, 100% 7%, 100% 100%, 6% 100%, 0 94%, 0 0)" }}>
+                    <Image src={"/images/pixel.png"} alt="Profile image" width={600} height={600} className="size-full" style={{ clipPath: "polygon(99% 0, 99% 6%, 100% 7%, 100% 100%, 6% 100%, 0 94%, 0 0)" }} />
+                  </div>
+                  <Label size="xs" className="-rotate-90 origin-left absolute -left-4 z-20 bottom-4 text-xs!">
+                    Avatar__238
+                  </Label>
                 </div>
                 {/* <video src={"/videos/loop.mp4"} autoPlay loop muted className="w-full h-full object-cover "></video> */}
               </div>

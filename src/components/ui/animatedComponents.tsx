@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { motion } from "framer-motion";
 import React from "react";
 
@@ -9,12 +9,7 @@ type AniBorderProps = {
   className?: string;
 };
 
-export function AniBorder({
-  direction = "vertical",
-  duration = 1,
-  delay = 1,
-  className = "",
-}: AniBorderProps) {
+export function AniBorder({ direction = "vertical", duration = 1, delay = 1, className = "" }: AniBorderProps) {
   const isWidth = direction === "horizontal";
 
   return (
@@ -37,13 +32,9 @@ interface AniDivProps {
   children: React.ReactNode;
 }
 
-
-export function AniDiv({
-  children,
-  className,
-}: AniDivProps) {
+export function AniDiv({ children, className }: AniDivProps) {
   return (
-    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 1 }} className={className}>
+    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 1 }} viewport={{ once: true }} className={className}>
       {children}
     </motion.div>
   );

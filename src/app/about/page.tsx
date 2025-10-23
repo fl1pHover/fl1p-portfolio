@@ -36,7 +36,7 @@ export default function About() {
             <div className="col-span-1 relative p-6 sticky top-7 left-0 py-[7em] hidden lg:block">
               <div className="w-full aspect-square rounded-lg relative">
                 <div className="p-[1px] bg-white" style={{ clipPath: "polygon(99% 0, 99% 6%, 100% 7%, 100% 100%, 6% 100%, 0 94%, 0 0)" }}>
-                  <Image src={"/images/pixel.png"} alt="Profile image" width={500} height={500} className="size-full" style={{ clipPath: "polygon(99% 0, 99% 6%, 100% 7%, 100% 100%, 6% 100%, 0 94%, 0 0)" }} />
+                  <Image src={"/images/pixel.png"} alt="Profile image" width={600} height={600} className="size-full" style={{ clipPath: "polygon(99% 0, 99% 6%, 100% 7%, 100% 100%, 6% 100%, 0 94%, 0 0)" }} />
                 </div>
                 <Label size={"xs"} className="absolute -rotate-90 bottom-5 -left-4 origin-left text-foreground-secondary z-20">
                   IMAGE_356
@@ -53,7 +53,9 @@ export default function About() {
 
               <div className="py-8 lg:py-10 relative space-y-8">
                 <div className="rounded-lg flex justify-center lg:hidden relative">
-                  <div className="w-[80%] max-w-[500px] aspect-square bg-muted" style={{ clipPath: "polygon(99% 0, 99% 6%, 100% 7%, 100% 100%, 6% 100%, 0 94%, 0 0)" }}></div>
+                  <div className="p-[1px] aspect-square w-[80%]  bg-white relative" style={{ clipPath: "polygon(99% 0, 99% 6%, 100% 7%, 100% 100%, 6% 100%, 0 94%, 0 0)" }}>
+                    <Image src={"/images/pixel.png"} alt="Profile image" width={600} height={600} className="size-full" style={{ clipPath: "polygon(99% 0, 99% 6%, 100% 7%, 100% 100%, 6% 100%, 0 94%, 0 0)" }} />
+                  </div>
 
                   <Label size={"xs"} className="absolute -rotate-90 bottom-4 left-4 origin-left text-foreground-secondary">
                     IMAGE_356

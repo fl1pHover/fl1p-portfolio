@@ -22,15 +22,15 @@ export default function Footer() {
             <Link href={"/"} className="text-xl! font-bold bro-header lowercase! tracking-normal! py-3">
               flipDev
             </Link>
-            <Label size={"xs"} className="border-white w-1/3 border-b absolute bottom-0 right-0 flex justify-end pb-2 uppercase text-xs font-bold">
+            <Label size={"xs"} className="border-white sm:w-1/3 border-b absolute bottom-0 right-0 flex justify-end pb-2 uppercase text-xs font-bold text-nowrap">
              {lang === "en" ? "Front-End Developer" : "Фронт-Энд Хөгжүүлэгч"}
               
             </Label>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3">
             {text.map((section, index) => (
-              <div key={index} className="py-[3em] space-y-6 border-b border-border">
+              <div key={index} className="py-[3em] last:col-span-2 md:last:col-span-1 pace-y-6 border-b border-border">
                 {section.title && <h3 className="tracking-widest bro-header text-sm!">{section.title}</h3>}
                 <div className="">
                   {section.items.map((item) => (
