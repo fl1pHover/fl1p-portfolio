@@ -67,6 +67,7 @@ export default function Navbar() {
     const interval = setInterval(updateTime, 1000);
     return () => clearInterval(interval);
   }, []);
+  const [isOpen, setIsOpen] = useState(false);
 
   const { lang, setLang } = useLanguage();
   const text = NAV_TEXT[lang];
@@ -77,7 +78,7 @@ export default function Navbar() {
         <motion.div initial={{ y: -70, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -100, opacity: 0 }} transition={{ duration: 0.5 }} className="fixed top-0 left-0 w-full z-50 p-3">
           <div className="padding-global bg-background border rounded-md">
             <div className="py-[1.1em] flex md:grid grid-cols-5 justify-between items-center w-full">
-              <Link href="/" className="col-span-1">
+              <Link href="/" className="col-span-1" scroll={true}>
                 fl1pDev
               </Link>
               <div className="col-span-3 md:flex items-center justify-center gap-4 text-xs uppercase hidden ">
@@ -95,7 +96,7 @@ export default function Navbar() {
                   {lang === "en" ? "EN" : "MN"}
                 </button>
 
-                <Drawer direction="right">
+                <Drawer open={isOpen} onOpenChange={setIsOpen} direction="right">
                   <DrawerTrigger className="border-border border size-10! rounded-full hover:bg-muted aspect-square cursor-pointer duration-150 z-[100]" asChild>
                     <Button variant={"outline"}>
                       <Menu />
@@ -105,7 +106,9 @@ export default function Navbar() {
                     <DrawerHeader className="relative">
                       <div className="flex items-center flex-row justify-between">
                         <DrawerTitle className="bro-header text-lg! font-bold lowercase!">
-                          <Link href={"/"}>fl1pDev</Link>
+                          <Link href={"/"} onClick={() => setIsOpen(false)} scroll={true}>
+                            fl1pDev
+                          </Link>
                         </DrawerTitle>
                         <DrawerClose asChild className=" right-6 top-6 border-foreground size-10 border p-2 rounded-full hover:bg-foreground/15 cursor-pointer">
                           {/* <FollowButton> */}
@@ -119,7 +122,7 @@ export default function Navbar() {
                             <Label size={"xs"} className="pt-1">
                               [{item.id}]
                             </Label>
-                            <Link href={item.label} className="bro-header text-4xl!">
+                            <Link href={item.label} onClick={() => setIsOpen(false)} scroll={true} className="bro-header text-4xl!">
                               <SplitText text={item.label} className="text-3xl sm:text-4xl lg:text-6xl leading-none!" />
                             </Link>
                           </div>

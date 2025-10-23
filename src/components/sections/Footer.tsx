@@ -34,7 +34,7 @@ export default function Footer() {
                 {section.title && <h3 className="tracking-widest bro-header text-sm!">{section.title}</h3>}
                 <div className="">
                   {section.items.map((item) => (
-                    <Link key={item.id} href={item.href} className="text-base tracking-wide hover:text-gray-300 flex items-center group transition duration-150 py-3" target={cn((section.title === "connect" || section.title === "сошиал") && "_blank")}>
+                    <Link key={item.id} href={item.href} scroll={true} className="text-base tracking-wide hover:text-gray-300 flex items-center group transition duration-150 py-3" target={cn((section.title === "connect" || section.title === "сошиал") && "_blank")}>
                       <Label size={"xs"} className="text-foreground/50 mr-2 group-hover:text-white cursor-pointer">
                         [{item.id}]
                       </Label>
