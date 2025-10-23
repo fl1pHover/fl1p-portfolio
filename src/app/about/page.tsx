@@ -11,6 +11,7 @@ import Link from "next/link";
 import { StarIcon } from "@/lib/icons";
 import { useLanguage } from "@/context/LanguageContext";
 import Image from "next/image";
+import { FollowButton } from "@/components/ui/FollowButton";
 
 export default function About() {
   const [activeEdu, setActiveEdu] = React.useState<number | null>(null);
@@ -33,7 +34,7 @@ export default function About() {
           <motion.div initial={{ height: 0 }} animate={{ height: "100%" }} transition={{ duration: 1, ease: "easeInOut" }} className="absolute top-0 right-0 h-full w-[1px] bg-border z-0"></motion.div>
 
           <motion.div variants={fadeIn(1, 1)} initial="hidden" animate="visible" className="lg:px-[3rem] lg:pr-[1em] grid lg:grid-cols-3 h-full items-start relative">
-            <div className="col-span-1 relative p-6 sticky top-7 left-0 py-[7em] hidden lg:block">
+            <div className="col-span-1 relative p-6 sticky top-7 left-0 py-[7em] hidden lg:flex flex-col items-center gap-6">
               <div className="w-full aspect-square rounded-lg relative">
                 <div className="p-[1px] bg-white" style={{ clipPath: "polygon(99% 0, 99% 6%, 100% 7%, 100% 100%, 6% 100%, 0 94%, 0 0)" }}>
                   <Image src={"/images/pixel.png"} alt="Profile image" width={600} height={600} className="size-full" style={{ clipPath: "polygon(99% 0, 99% 6%, 100% 7%, 100% 100%, 6% 100%, 0 94%, 0 0)" }} />
@@ -42,6 +43,9 @@ export default function About() {
                   IMAGE_356
                 </Label>
               </div>
+              <Link href={"/cv.pdf"} download>
+                <FollowButton>{text.cv}</FollowButton>
+              </Link>
             </div>
             <div className="col-span-2 relative size-full p-6 py-[7em]">
               <motion.div initial={{ height: 0 }} animate={{ height: "100%" }} transition={{ duration: 1, ease: "easeInOut" }} className="absolute top-0 left-0 h-full w-[1px] bg-border z-0"></motion.div>
@@ -52,14 +56,17 @@ export default function About() {
               </div>
 
               <div className="py-8 lg:py-10 relative space-y-8">
-                <div className="rounded-lg flex justify-center lg:hidden relative">
+                <div className="rounded-lg flex justify-center lg:hidden relative flex-col items-center gap-6">
                   <div className="p-[1px] aspect-square w-[80%]  bg-white relative" style={{ clipPath: "polygon(99% 0, 99% 6%, 100% 7%, 100% 100%, 6% 100%, 0 94%, 0 0)" }}>
                     <Image src={"/images/pixel.png"} alt="Profile image" width={600} height={600} className="size-full" style={{ clipPath: "polygon(99% 0, 99% 6%, 100% 7%, 100% 100%, 6% 100%, 0 94%, 0 0)" }} />
                   </div>
 
-                  <Label size={"xs"} className="absolute -rotate-90 bottom-4 left-4 origin-left text-foreground-secondary">
+                  <Label size={"xs"} className="absolute -rotate-90 bottom-20 left-4 origin-left text-foreground-secondary">
                     IMAGE_356
                   </Label>
+                  <Link href={"/cv.pdf"} download>
+                    <FollowButton>{text.cv}</FollowButton>
+                  </Link>
                 </div>
                 <div className="flex items-center text-foreground justify-between gap-2">
                   <StarIcon className="size-4" />

@@ -168,6 +168,7 @@ export const ABOUT_TEXT = {
     name: "Bishubazar Sosorburam",
     status: "Newbie Graduated Student",
     description: "I hold a Bachelor's degree in Information Systems and am passionate about working as a Front-End Developer. I have successfully gained hands-on experience through projects and internships in positions such as Front-End Developer and UX Designer. I am deeply interested in web development and design, with the ability to quickly learn new technologies. I possess strong teamwork, problem-solving, and time management skills. I am responsible, adaptable, and continuously strive to develop my professional abilities and acquire new knowledge.",
+    cv: "Download CV",
     eduTitle1: "Education &",
     eduTitle2: "Certifications",
   },
@@ -176,6 +177,7 @@ export const ABOUT_TEXT = {
     name: "Сосорбурам Бишүбазар",
     status: "Шинэхэн төгсөгч",
     description: "Мэдээллийн системийн бакалавр боловсролтой, Frontend хөгжүүлэгчээр ажиллах сонирхолтой. Front-End Developer, UX Designer зэрэг албан тушаалд төслүүд дээр дадлагажигчаар амжилттай ажилласан туршлатай. Вэб хөгжүүлэлт, дизайны чиглэлд сонирхолтой бөгөөд шинэ технологиудыг хурдан сурах чадвартай. Багаар ажиллах, асуудал шийдвэрлэх, цагийн менежмент зэрэг ур чадваруудтай. Хариуцлагатай, дасан зохицох чадвартай. Мэргэжлийн ур чадвараа хөгжүүлэхийн тулд тасралтгүй суралцаж, шинэ мэдлэгийг эзэмшихийг зорьдог.",
+    cv: "CV татах",
     eduTitle1: "Боловсрол &",
     eduTitle2: "Гэрчилгээнүүд",
   },
@@ -370,7 +372,7 @@ export const FOOTER_TEXT = {
       title: "цэс",
       items: [
         { id: "01", label: "Нүүр", href: "/" },
-        { id: "01", label: "Ажлууд", href: "/work" },
+        { id: "02", label: "Ажлууд", href: "/work" },
         { id: "03", label: "Тухай", href: "/about" },
         { id: "04", label: "Холбогдох", href: "/contact" },
       ],
@@ -386,7 +388,7 @@ export const FOOTER_TEXT = {
     {
       title: "холбогдох",
       items: [
-        { id: "09", label: "96208458", href: "tel:+97696208458" },
+        { id: "08", label: "96208458", href: "tel:+97696208458" },
         { id: "09", label: "bishu.hover@gmail.com", href: "mailto:bishu.hover@gmail.com" },
         // { id: "15", label: "AWWWARDS", href: "/work" },
       ],
