@@ -28,7 +28,7 @@ export default function Footer() {
             </Label>
           </div>
 
-          <div className="grid grid-cols-3">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3">
             {text.map((section, index) => (
               <div key={index} className="py-[3em] space-y-6 border-b border-border">
                 {section.title && <h3 className="tracking-widest bro-header text-sm!">{section.title}</h3>}
