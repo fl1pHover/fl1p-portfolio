@@ -10,7 +10,7 @@ export default function Techs() {
 
 
   return (
-    <div className="h-[200vh] py-20">
+    <div className="py-20">
       <div className="h-6 border-y border-white flex items-center relative max-w-screen overflow-x-hidden">
         <motion.div className="flex items-center flex-nowrap absolute left-[50%] -translate-x-[50%] gap-x-1.5">
           {[...Array(200)].map((_, i) => (

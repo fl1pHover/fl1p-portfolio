@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { NAV_TEXT } from "@/lib/constants";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -27,7 +27,7 @@ export default function AudioButton() {
   return (
     <div className="flex items-center gap-2 cursor-pointer">
       <button onClick={toggleAudio} className="flex items-center cursor-pointer navbar-button gap-2">
-        <span className="text-[9px] uppercase">{text.sound}</span>
+        <span className="text-[9px] uppercase text-nowrap">{text.sound}</span>
         <div className="flex items-center gap-[2px] h-4">
           {[1, 2, 3, 4, 5].map((i) => (
             <motion.div

@@ -7,13 +7,14 @@ import { useLanguage } from "@/context/LanguageContext";
 import { FOOTER_TEXT, NAV_TEXT } from "@/lib/constants";
 import { AnimatePresence, motion } from "framer-motion";
 import AudioButton from "../ui/AudioButton";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "../ui/button";
 
 import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import { Label } from "../ui/label";
 import { StarIcon } from "@/lib/icons";
 import SplitText from "../ui/SplitText";
+import { FollowButton } from "../ui/FollowButton";
 
 export default function Navbar() {
   const [time, setTime] = useState("");
@@ -77,7 +78,7 @@ export default function Navbar() {
           <div className="padding-global bg-background border rounded-md">
             <div className="py-[1.1em] flex md:grid grid-cols-5 justify-between items-center w-full">
               <Link href="/" className="col-span-1">
-                fl1p
+                fl1pDev
               </Link>
               <div className="col-span-3 md:flex items-center justify-center gap-4 text-xs uppercase hidden ">
                 {text.items.map((item, index) => (
@@ -95,27 +96,39 @@ export default function Navbar() {
                 </button>
 
                 <Drawer direction="right">
-                  <DrawerTrigger className="border-border border size-10 p-2 rounded-full hover:bg-muted cursor-pointer duration-150 z-[100]" asChild>
-                    <Menu className="size" />
+                  <DrawerTrigger className="border-border border size-10! rounded-full hover:bg-muted aspect-square cursor-pointer duration-150 z-[100]" asChild>
+                    <Button variant={"outline"}>
+                      <Menu />
+                    </Button>
                   </DrawerTrigger>
                   <DrawerContent>
-                    <DrawerHeader>
-                      <DrawerTitle className="bro-header text-lg! font-bold lowercase!">fl1pDev</DrawerTitle>
-                      <div className="flex flex-col h-full py-20 gap-6">
+                    <DrawerHeader className="relative">
+                      <div className="flex items-center flex-row justify-between">
+                        <DrawerTitle className="bro-header text-lg! font-bold lowercase!">
+                          <Link href={"/"}>fl1pDev</Link>
+                        </DrawerTitle>
+                        <DrawerClose asChild className=" right-6 top-6 border-foreground size-10 border p-2 rounded-full hover:bg-foreground/15 cursor-pointer">
+                          {/* <FollowButton> */}
+                          <X className="size-2" />
+                          {/* </FollowButton> */}
+                        </DrawerClose>
+                      </div>
+                      <div className="flex flex-col h-full py-20 gap-6 relative sm:pl-6">
                         {list?.items.map((item, index) => (
-                          <div className="flex items-center gap-2" key={index}>
-                            <Label size={"xs"} className="pb-4">
+                          <div className="flex items-start gap-2" key={index}>
+                            <Label size={"xs"} className="pt-1">
                               [{item.id}]
                             </Label>
                             <Link href={item.label} className="bro-header text-4xl!">
-                              <SplitText text={item.label} />
+                              <SplitText text={item.label} className="text-3xl sm:text-4xl lg:text-6xl leading-none!" />
                             </Link>
                           </div>
                         ))}
                       </div>
                     </DrawerHeader>
+
                     <DrawerFooter className="relative p-10 pr-6 gap-6">
-                      <Button variant={"transparent"} onClick={() => setLang(lang === "en" ? "mn" : "en")} className="text-sm cursor-pointer border border-white w-fit">
+                      <Button variant={"transparent"} onClick={() => setLang(lang === "en" ? "mn" : "en")} className="text-sm cursor-pointer border border-white w-fit mx-auto">
                         {lang === "en" ? "Change Language - EN" : "Хэл солих - Монгол"}
                       </Button>
                       <div className="flex gap-2 items-center">

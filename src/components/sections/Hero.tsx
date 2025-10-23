@@ -7,6 +7,10 @@ import { HERO_TEXT } from "@/lib/constants";
 import { motion } from "framer-motion";
 import SplitText from "../ui/SplitText";
 import { StarIcon } from "@/lib/icons";
+import { fadeIn } from "@/lib/animations";
+import FollowBot from "../ui/FollowBot";
+import Image from "next/image";
+import { Label } from "../ui/label";
 
 export default function Hero() {
   const { lang } = useLanguage();
@@ -16,25 +20,29 @@ export default function Hero() {
   const initialDuration = 1;
 
   return (
-    <section data-scroll-section className="h-screen padding-bigger">
+    <section data-scroll-section className="lg:h-screen padding-bigger">
       <div className="padding-inner">
         <div className="border-x border-b border-border lg:h-screen lg:min-h-screen">
           <div className="px-2 lg:px-[3rem] flex flex-col justify-end h-full items-center pt-[7em]">
-            <motion.div initial={{ scale: 1.5 }} animate={{ scale: 1 }} transition={{ duration: initialDuration, delay: initialDelay, ease: "easeInOut" }} className="h-full flex flex-col justify-center pb-20 lg:pb-0">
+            <motion.div initial={{ scale: 1.5, y: 100 }} animate={{ scale: 1, y: 0 }} transition={{ duration: initialDuration, delay: initialDelay, ease: "easeInOut" }} className="h-full flex flex-col justify-center pb-20 lg:pb-0">
               {/* <h1>{text.name}</h1> */}
               <SplitText text="Creative" className="bro-header translate-x-[5%]" />
               <SplitText text="Frontend" className="bro-header -translate-x-[15%]" />
               <SplitText text="Developer" className="bro-header translate-x-[30%]" />
-
-              {/* <h1 className="text-6xl font-bold uppercase italic">
-                Frontend <br />
-                <motion.span initial={{ marginLeft: 0 }} animate={{ marginLeft: 100 }} transition={{ delay: initialDelay, duration: initialDuration }}>
-                  Developer
-                </motion.span>
-              </h1> */}
             </motion.div>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2 }} className="grid lg:grid-cols-2 items-end w-full">
-              <div className="py-[6em] hidden lg:block">{/* <video src={"/videos/loop.mp4"} autoPlay loop muted className="w-full h-full object-cover "></video> */}</div>
+              <div className="pb-[4em] flex justify-center relative">
+                {/* <FollowBot /> */}
+                <div className="relative w-[65%]">
+
+                <div className="p-[1px] aspect-square bg-white relative" style={{ clipPath: "polygon(99% 0, 99% 6%, 100% 7%, 100% 100%, 6% 100%, 0 94%, 0 0)" }}>
+                  <Image src={"/images/pixel.png"} alt="Profile image" width={600} height={600} className="size-full" style={{ clipPath: "polygon(99% 0, 99% 6%, 100% 7%, 100% 100%, 6% 100%, 0 94%, 0 0)" }} />
+                </div>
+                <Label size='xs' className="-rotate-90 origin-left absolute -left-4 z-20 bottom-4 text-xs!">Avatar__238</Label>
+
+                </div>
+                {/* <video src={"/videos/loop.mp4"} autoPlay loop muted className="w-full h-full object-cover "></video> */}
+              </div>
 
               <div className="ml-2 lg:pl-[3.5rem] lg:pr-[1rem] space-y-10 relative py-[3em] lg:py-[6em]">
                 <div className="bg-background absolute z-10 top-0 left-0 -translate-x-[50%] -translate-y-[50%] p-2">
@@ -47,7 +55,7 @@ export default function Hero() {
                     <h6 className="text-xs md:text-sm text-background text-nowrap">{text.available}</h6>
                   </div>
                 </div>
-                <motion.div initial={{ height: 0 }} animate={{ height: "100%" }} transition={{ duration: initialDuration, delay: 2, ease: "easeInOut" }} className="absolute top-0 left-0 h-full w-[1px] bg-border z-0 hidden lg:block"></motion.div>
+                <motion.div variants={fadeIn(1, 2)} initial="hidden" animate="visible" className="absolute top-0 left-0 h-full w-[1px] bg-border z-0 hidden lg:block"></motion.div>
                 <h1 className="lg:text-lg font-medium">
                   {text.desc}
                   {/* <SplitText text={text.desc} /> */}

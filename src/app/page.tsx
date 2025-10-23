@@ -3,6 +3,8 @@
 import Hero from "@/components/sections/Hero";
 import Projects from "@/components/sections/Projects";
 import Techs from "@/components/sections/Techs";
+import { useLanguage } from "@/context/LanguageContext";
+import { INTRO_TEXT } from "@/lib/constants";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -12,6 +14,9 @@ export default function Intro() {
   const handleEnterClick = () => {
     setShowContent(true);
   };
+
+  const { lang } = useLanguage();
+  const intro = INTRO_TEXT[lang];
 
   return (
     <>
@@ -27,7 +32,7 @@ export default function Intro() {
             onAnimationComplete={handleEnterClick}
             className="flex flex-col items-center gap-4"
           >
-            <h1>Welcome to my Portfolio</h1>
+            <h1>{intro.title}</h1>
             <div className="w-[300px] bg-border h-0.5">
               <motion.div initial={{ width: 20 }} animate={{ width: "100%" }} transition={{ duration: 2 }} className="bg-white h-full"></motion.div>
             </div>

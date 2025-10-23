@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
-import { HERO_TEXT } from "@/lib/constants";
+import { CONTACT_FORM, CONTACT_INFO, CONTACT_TEXT, FAQ_TEXT, HERO_TEXT } from "@/lib/constants";
 import { motion } from "framer-motion";
 import SplitText from "@/components/ui/SplitText";
-import AniDiv from "@/components/ui/AniDiv";
 import { fadeIn } from "@/lib/animations";
 import { Input } from "@/components/ui/input";
 import { FollowButton } from "@/components/ui/FollowButton";
@@ -13,140 +12,133 @@ import { Label } from "@/components/ui/label";
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Image from "next/image";
+import { AniBorder, AniDiv } from "@/components/ui/animatedComponents";
+import { cn } from "@/lib/utils";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function Contact() {
   const { lang } = useLanguage();
-  const text = HERO_TEXT[lang];
-
-  const initialDelay = 1;
-  const initialDuration = 1;
+  const text = CONTACT_TEXT[lang];
+  const info = CONTACT_INFO[lang];
+  const form = CONTACT_FORM[lang];
+  const faq = FAQ_TEXT[lang];
 
   return (
     <section className="padding-bigger">
       <div className="xl:px-[4.37em]">
         {/* Parent */}
         <div className="relative">
-          <motion.div initial={{ height: 0 }} animate={{ height: "100%" }} transition={{ duration: initialDuration, delay: 2, ease: "easeInOut" }} className="absolute top-0 left-0 h-full w-[1px] bg-border z-0"></motion.div>
-          <motion.div initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: initialDuration, delay: 2, ease: "easeInOut" }} className="absolute bottom-0 left-0 h-[1px] bg-border z-0"></motion.div>
+          <AniBorder className="top-0 left-0" />
+          <AniBorder direction="horizontal" className="bottom-0 left-0" />
+
           <div className="flex flex-col justify-end h-full items-center">
             <motion.div className="grid lg:grid-cols-2 items-end w-full relative">
-              <motion.div initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: initialDuration, delay: 2, ease: "easeInOut" }} className="absolute bottom-0 left-0 h-[1px] bg-border z-0"></motion.div>
-              <div className="lg:pb-[5rem] pt-[10rem] h-full align-bottom px-6 lg:px-[3rem] flex flex-col text-3xl sm:text-5xl">
-                <SplitText text="Contact" className="bro-header" />
-                <SplitText text="information" className="bro-header" />
+              <AniBorder direction="horizontal" className="bottom-0 left-0" />
+
+              <div className="lg:pb-[5rem] pt-[10rem] h-full align-bottom px-6 lg:px-[3rem] flex flex-col">
+                <SplitText text={text.title1} className="bro-header text-3xl! sm:text-5xl!" />
+                <SplitText text={text.title2} className="bro-header text-3xl! sm:text-5xl!" />
               </div>
 
-              <div className="relative p-10 lg:p-[5rem] text-lg lg:pt-[10rem]">
-                <AniDiv text="Whether you’re launching something new, refining your current site, or exploring a collaboration, let’s find the right approach together." className="text-sm lg:text-base" />
-                <motion.div initial={{ height: 0 }} animate={{ height: "100%" }} transition={{ duration: initialDuration, delay: 2, ease: "easeInOut" }} className="absolute top-0 left-0 h-full w-[1px] bg-border z-0"></motion.div>
-                <motion.div initial={{ height: 0 }} animate={{ height: "100%" }} transition={{ duration: initialDuration, delay: 2, ease: "easeInOut" }} className="absolute bottom-0 right-0 h-full w-[1px] bg-border z-0"></motion.div>
+              <div className="relative p-10 lg:p-[3em] text-lg lg:pt-[10rem]">
+                <AniDiv>
+                  <h1>{text.description}</h1>
+                </AniDiv>
+
+                <AniBorder direction="vertical" className="top-0 left-0" />
+                <AniBorder direction="vertical" className="bottom-0 right-0" />
               </div>
             </motion.div>
           </div>
           <div className="w-full grid grid-cols-6">
             <div className="col-span-full sm:col-span-2 relative" style={{ padding: "4.5rem 2.5rem 3.5rem" }}>
-              <motion.div initial={{ height: 0 }} animate={{ height: "100%" }} transition={{ duration: initialDuration, delay: 2, ease: "easeInOut" }} className="absolute bottom-0 right-0 h-full w-[1px] bg-border z-0"></motion.div>
-              <motion.div variants={fadeIn} initial="hidden" animate="visible" whileInView="visible" viewport={{ once: true }} className="space-y-10">
-                <div className="space-y-1.5">
-                  <h6 className="small-label">[ Email ]</h6>
-                  <h1 className="font-semibold">bishu.hover@gmail.com</h1>
-                </div>
-                <div className="space-y-1.5">
-                  <h6 className="small-label">[ Phone ]</h6>
-                  <h1 className="font-semibold">(976)9620-8458</h1>
-                </div>
-                <div className="space-y-1.5">
-                  <h6 className="small-label">[ Socials ]</h6>
-                  <div className="flex gap-2">
-                    <Link href={"https://www.linkedin.com/in/bishubazar-sosorburam-767410226/"} className="flex items-center gap-2">
-                      <Image src="/images/logo/linkedin.svg" width={50} height={50} alt="Linkedin" className="size-8 bg-white p-1 hover:opacity-80 rounded-xs duration-150" />
-                    </Link>
-                    <Link href={"https://www.linkedin.com/in/bishubazar-sosorburam-767410226/"} className="flex items-center gap-2">
-                      <Image src="/images/logo/telegram.svg" width={50} height={50} alt="Linkedin" className="size-8 bg-white p-1 hover:opacity-80 rounded-xs duration-150" />
-                    </Link>
-                    <Link href={"https://www.linkedin.com/in/bishubazar-sosorburam-767410226/"} className="flex items-center gap-2">
-                      <Image src="/images/logo/linkedin.svg" width={50} height={50} alt="Linkedin" className="size-8 bg-white p-1 hover:opacity-80 rounded-xs duration-150" />
-                    </Link>
+              <AniBorder direction="vertical" className="bottom-0 right-0" />
+
+              <motion.div variants={fadeIn(1, 1)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-10">
+                {info.map((item, i) => (
+                  <div key={i} className="space-y-1.5">
+                    <h6 className="small-label">{`[ ${item.title} ]`}</h6>
+
+                    <h1 className="semi-bold">
+                      {item.type ? (
+                        <Link href={cn((item.type === "email" && "mailto:bishu.hover@gmail.com") || (item.type === "phone" && "tel:+97696208458"))} target="_blank">
+                          {item.value}
+                        </Link>
+                      ) : (
+                        <>{item.value}</>
+                      )}
+                    </h1>
+
+                    {item.socials && (
+                      <div className="flex gap-2">
+                        {item.socials.map((social, j) => (
+                          <Link key={j} href={social.url} target="_blank">
+                            <Image src={`/images/logo/${social.icon}`} width={50} height={50} alt={social.title} className="size-8 bg-white p-1 hover:opacity-80 rounded-xs duration-150" />
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                </div>
-                {/* <div className="space-y-1.5">
-                  <h6 className="small-label">[ for collaborators ]</h6>
-                  <h1 className="font-semibold">I occasionally collaborate with designers, developers, and other creatives on projects that share the same care for detail and creative intent. If that sounds like you, get in touch.</h1>
-                </div> */}
-                <div className="space-y-1.5">
-                  <h6 className="small-label">[ for questions ]</h6>
-                  <AniDiv text="Have a question? You can check the FAQ or get in touch directly."></AniDiv>
-                </div>
+                ))}
               </motion.div>
             </div>
-            <motion.div variants={fadeIn} initial="hidden" animate="visible" className="col-span-full sm:col-span-4 h-fit text-3xl sm:grid grid-cols-2 gap-8 space-y-12" style={{ padding: "4.5rem 2.5rem 3.5rem" }}>
-              <div className="space-y-2">
-                <Label>What&apos;s your name?</Label>
-                <Input placeholder="Full Name" />
-              </div>
-              <div className="space-y-2">
-                <Label>What&apos;s your email?</Label>
-                <Input placeholder="name@company.com" />
-              </div>
-              <div className="col-span-2 space-y-2">
-                <Label>What&apos;s your brief?</Label>
-                <Input placeholder="Write you brief here: I need ___ with this scope, pages, specific need ___." />
-              </div>
+            <motion.div variants={fadeIn(1, 1)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="col-span-full sm:col-span-4 h-fit text-3xl sm:grid grid-cols-2 gap-8 space-y-12" style={{ padding: "4.5rem 2.5rem 3.5rem" }}>
+              {form.map((input, i) => (
+                <div key={i} className={cn("col-span-1 space-y-2 mb-4", input.type === "textarea" && "col-span-full")}>
+                  <Label>{input.label}</Label>
+
+                  {input.type === "input" && <Input className="cursor-not-allowed" placeholder={input.placeholder} />}
+
+                  {input.type === "textarea" && <Textarea className="cursor-not-allowed max-h-50" rows={3} placeholder={input.placeholder} />}
+                </div>
+              ))}
               <div className="w-fit">
-                <FollowButton className="w-fit">Submit</FollowButton>
+                <FollowButton className="w-fit cursor-not-allowed">{text.button}</FollowButton>
               </div>
             </motion.div>
           </div>
         </div>
         <div className="grid sm:grid-cols-3 relative pt-20">
-          <div className="col-span-2 p-0 sm:p-4 border-r text-3xl sm:text-7xl">
-            <SplitText text="FREQUENTLY" className="bro-header" />
-            <SplitText text="ASKED QUESTIONS" className="bro-header" />
+          <div className="col-span-2 p-0 sm:p-4 relative text-3xl sm:text-7xl">
+            <SplitText text={faq.title1} className="bro-header" />
+            <SplitText text={faq.title2} className="bro-header" />
+            <AniBorder className="right-0 bottom-0" delay={0} />
           </div>
           <div
-            className="col-span-1 border-b border-white ml-0 sm:ml-2
+            className="col-span-2 sm:col-span-1 border-b border-white ml-0 sm:ml-2
           flex size-full items-end justify-end p-1"
           >
-            <div className="flex items-center gap-1">
-              {[...Array(35)].map((_, i) => (
-                <div
-                  key={i}
-                  className="w-[1.5px] h-3 bg-white"
-                  style={{
-                    transform: `rotate(20deg)`,
-                    transformOrigin: "top left",
-                  }}
-                />
-              ))}
-              <Label size={"xs"} className="pl-2">
-                FAQ__004
-              </Label>
-            </div>
+            <motion.div variants={fadeIn(0, 1)} initial="hidden" whileInView={"visible"}>
+              <div className="flex items-center gap-1">
+                {[...Array(25)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-[1.5px] h-3 bg-white"
+                    style={{
+                      transform: `rotate(20deg)`,
+                      transformOrigin: "top left",
+                    }}
+                  />
+                ))}
+                <Label size={"xs"} className="pl-2">
+                  FAQ__{faq.list.length}
+                </Label>
+              </div>
+            </motion.div>
           </div>
-          <div className="col-span-2 relative pb-48">
-            <div className="w-full relative border-r border-b">{/* <div className="bg-border w-[1px] h-full absolute right-0 top-0"></div> */}</div>
-            <div className="w-[1px] absolute top-0 left-0 h-full bg-border"></div>
+          <div className="col-span-2 relative pb-48 mt-2 sm:mt-0">
+            <AniBorder direction="vertical" delay={0} className="top-0 left-0" />
 
             <Accordion type="single" collapsible className="relative">
-              <AccordionItem value="item-1">
-                <AccordionTrigger>Why Choose Webflow for you website?</AccordionTrigger>
-                <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-2">
-                <AccordionTrigger>Why Choose Webflow for you website?</AccordionTrigger>
-                <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-3">
-                <AccordionTrigger>Why Choose Webflow for you website?</AccordionTrigger>
-                <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-4">
-                <AccordionTrigger>Why Choose Webflow for you website?</AccordionTrigger>
-                <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
-              </AccordionItem>
+              {faq.list.map((item, i) => (
+                <AccordionItem key={i} value={`item-${i}`}>
+                  <AccordionTrigger>{item.question}</AccordionTrigger>
+                  <AccordionContent>{item.answer}</AccordionContent>
+                </AccordionItem>
+              ))}
             </Accordion>
           </div>
-          <div className="p-6 sticky top-20">Can’t find an answer to your question? Feel free to contact me.</div>
+          <div className="p-6 sticky top-20">{text.contactNote}</div>
         </div>
       </div>
     </section>

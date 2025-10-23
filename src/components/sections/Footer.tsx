@@ -6,6 +6,7 @@ import { Label } from "../ui/label";
 import { useLanguage } from "@/context/LanguageContext";
 import { FOOTER_TEXT } from "@/lib/constants";
 import { LeftPillarSVG, RightPillarSVG } from "@/lib/icons";
+import { cn } from "@/lib/utils";
 
 export default function Footer() {
   const { lang, setLang } = useLanguage();
@@ -22,7 +23,8 @@ export default function Footer() {
               flipDev
             </Link>
             <Label size={"xs"} className="border-white w-1/3 border-b absolute bottom-0 right-0 flex justify-end pb-2 uppercase text-xs font-bold">
-              Newbie graduated Developer
+             {lang === "en" ? "Front-End Developer" : "Фронт-Энд Хөгжүүлэгч"}
+              
             </Label>
           </div>
 
@@ -30,22 +32,21 @@ export default function Footer() {
             {text.map((section, index) => (
               <div key={index} className="py-[3em] space-y-6 border-b border-border">
                 {section.title && <h3 className="tracking-widest bro-header text-sm!">{section.title}</h3>}
-                <ul className="space-y-3">
+                <div className="">
                   {section.items.map((item) => (
-                    <li key={item.id} className="text-base tracking-wide hover:text-gray-300 transition-colors flex items-center">
-                      <Label size={"xs"} className="text-foreground/50 mr-2 mb-2">
+                    <Link key={item.id} href={item.href} className="text-base tracking-wide hover:text-gray-300 flex items-center group transition duration-150 py-3" target={cn((section.title === "connect" || section.title === "сошиал") && "_blank")}>
+                      <Label size={"xs"} className="text-foreground/50 mr-2 group-hover:text-white cursor-pointer">
                         [{item.id}]
                       </Label>
-                      <Label className="text-[12px]">{item.label}</Label>
-
+                      <Label className="text-[12px] group-hover:translate-x-2 duration-150 cursor-pointer">{item.label}</Label>
                       {/* {item.href ? (
                   <a href={item.href}>{item.label}</a>
                 ) : (
                   <span>{item.label}</span>
                 )} */}
-                    </li>
+                    </Link>
                   ))}
-                </ul>
+                </div>
               </div>
             ))}
           </div>
