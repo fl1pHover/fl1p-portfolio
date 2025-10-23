@@ -35,9 +35,9 @@ export default function About() {
           <motion.div variants={fadeIn(1, 1)} initial="hidden" animate="visible" className="lg:px-[3rem] lg:pr-[1em] grid lg:grid-cols-3 h-full items-start relative">
             <div className="col-span-1 relative p-6 sticky top-7 left-0 py-[7em] hidden lg:block">
               <div className="w-full aspect-square rounded-lg relative">
-              <div className="p-[1px] bg-white" style={{ clipPath: "polygon(99% 0, 99% 6%, 100% 7%, 100% 100%, 6% 100%, 0 94%, 0 0)" }} >
-                  <Image src={"/images/profile.png"} alt="Profile image" width={500} height={500}  className="size-full" style={{ clipPath: "polygon(99% 0, 99% 6%, 100% 7%, 100% 100%, 6% 100%, 0 94%, 0 0)" }} />
-              </div>
+                <div className="p-[1px] bg-white" style={{ clipPath: "polygon(99% 0, 99% 6%, 100% 7%, 100% 100%, 6% 100%, 0 94%, 0 0)" }}>
+                  <Image src={"/images/pixel.png"} alt="Profile image" width={500} height={500} className="size-full" style={{ clipPath: "polygon(99% 0, 99% 6%, 100% 7%, 100% 100%, 6% 100%, 0 94%, 0 0)" }} />
+                </div>
                 <Label size={"xs"} className="absolute -rotate-90 bottom-5 -left-4 origin-left text-foreground-secondary z-20">
                   IMAGE_356
                 </Label>
