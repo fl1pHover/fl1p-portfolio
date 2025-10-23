@@ -23,8 +23,8 @@ export default function Work() {
         <div className="padding-inner">
           <div className="border-x border-border grid md:grid-cols-2 pt-[9em] pb-10 px-10 md:px-2 md:px-[3rem] space-y-10">
             <div className="flex flex-col justify-center">
-              <SplitText text={text.title1} className="bro-header text-5xl! xl:text-7xl! leading-none" />
-              <SplitText text={text.title2} className="bro-header text-5xl! xl:text-7xl! leading-none" />
+              <SplitText text={text.title1} className="bro-header text-4xl! xl:text-7xl! leading-none" />
+              <SplitText text={text.title2} className="bro-header text-4xl! xl:text-7xl! leading-none" />
               {/* <SplitText text="on" className="bro-header text-7xl! leading-none" /> */}
             </div>
             <div className="flex flex-col gap-10 md:p-10 relative">
@@ -40,16 +40,16 @@ export default function Work() {
                   <StarIcon className="size-4" />
                 </div>{" "}
                 <motion.div initial={{ width: 0 }} animate={{ width: "60%" }} transition={{ duration: 1, delay: 1, ease: "easeInOut" }} className="w-1/3 lg:w-1/2 h-[1px] bg-white"></motion.div>
-                <Label size={"sm"} className="font-bold">
+                <Label size={"sm"} className="font-bold text-nowrap">
                   {text.status}
                 </Label>
               </div>
             </div>
           </div>
-          <div className="grid md:grid-cols-2 border border-b-0 divide-x divide-y divide-border last:divide-y-0">
+          <div className="grid md:grid-cols-2 border border-b-0 md:divide-x md:divide-y divide-border last:divide-y-0">
             {WORK_LIST.map((item, index) => {
               return (
-                <div key={index} className="flex flex-col gap-3 px-4 py-8">
+                <div key={index} className="flex flex-col gap-3 px-4 py-8 border-b">
                   <Label size={"xs"} className="text-foreground-secondary opacity-80">
                     Project__{item.id}
                   </Label>

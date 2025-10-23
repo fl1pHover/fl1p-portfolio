@@ -122,7 +122,7 @@ export default function Navbar() {
                             <Label size={"xs"} className="pt-1">
                               [{item.id}]
                             </Label>
-                            <Link href={item.label} onClick={() => setIsOpen(false)} scroll={true} className="bro-header text-4xl!">
+                            <Link href={item.href} onClick={() => setIsOpen(false)} scroll={true} className="bro-header text-4xl!">
                               <SplitText text={item.label} className="text-3xl sm:text-4xl lg:text-6xl leading-none!" />
                             </Link>
                           </div>

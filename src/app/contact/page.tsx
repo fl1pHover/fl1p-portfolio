@@ -82,18 +82,18 @@ export default function Contact() {
                 ))}
               </motion.div>
             </div>
-            <motion.div variants={fadeIn(1, 1)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="col-span-full sm:col-span-4 h-fit text-3xl sm:grid grid-cols-2 gap-8 space-y-12" style={{ padding: "4.5rem 2.5rem 3.5rem" }}>
+            <motion.div variants={fadeIn(1, 1)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="col-span-full sm:col-span-4 h-fit text-3xl sm:grid grid-cols-2 gap-8 space-y-12 pt-10 px-10 sm:pt-[4.5rem] pb-14">
               {form.map((input, i) => (
                 <div key={i} className={cn("col-span-1 space-y-2 mb-4", input.type === "textarea" && "col-span-full")}>
                   <Label>{input.label}</Label>
 
-                  {input.type === "input" && <Input className="cursor-not-allowed" placeholder={input.placeholder} />}
+                  {input.type === "input" && <Input className="cursor-not-allowed pointer-events-none" placeholder={input.placeholder} />}
 
-                  {input.type === "textarea" && <Textarea className="cursor-not-allowed max-h-50" rows={3} placeholder={input.placeholder} />}
+                  {input.type === "textarea" && <Textarea className="cursor-not-allowed max-h-50 pointer-events-none" rows={3} placeholder={input.placeholder} />}
                 </div>
               ))}
               <div className="w-fit">
-                <FollowButton className="w-fit cursor-not-allowed">{text.button}</FollowButton>
+                <FollowButton className="w-fit cursor-not-allowed pointer-events-none">{text.button}</FollowButton>
               </div>
             </motion.div>
           </div>
