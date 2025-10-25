@@ -1,3 +1,4 @@
+import { Description } from "@radix-ui/react-dialog";
 import { ins, label, s } from "motion/react-client";
 import { title } from "process";
 
@@ -131,34 +132,37 @@ export const WORK_TEXT = {
 
 export const WORK_LIST = [
   {
-    id: "001",
+    id: 1,
     title: "Space-boi - UFE Creative Contest",
-    url: "",
+    video: "/videos/project-1.gif",
+    img: "/images/projects/project-1.png",
+    url: "https://space-boi.vercel.app/",
+    description: {
+      en: "UFE Creative Contest",
+      mn: "СЭЗИС Бүтээлийн уралдаан",
+    },
   },
   {
-    id: "002",
-    title: "lorem",
-    url: "",
+    id: 2,
+    title: "ACW Trans LLC",
+    video: "/videos/project-2.gif",
+    img: "/images/projects/project-2.png",
+    url: "https://acwtrans.mn/",
+    description: {
+      en: "An international freight forwarding company providing fast and reliable air, land, and sea transportation services.",
+      mn: "Агаар, авто, далайн тээврээр хурдан, найдвартай олон улсын тээвэр зуучлалын компани.",
+    },
   },
   {
-    id: "003",
-    title: "lorem",
-    url: "",
-  },
-  {
-    id: "004",
-    title: "lorem",
-    url: "",
-  },
-  {
-    id: "005",
-    title: "lorem",
-    url: "",
-  },
-  {
-    id: "006",
-    title: "lorem",
-    url: "",
+    id: 3,
+    title: "Mobi-Challenge",
+    video: "/videos/project-3.gif",
+    img: "/images/projects/project-3.png",
+    url: "#",
+    description: {
+      en: "A registration and introduction website for a competition organized by Mobicom to create innovative, creative, and practical solutions and turn them into real results.",
+      mn: "Mobicom компаний зохион байгуулсан бүтээлч, шинэлэг, инновацлаг шийдэл гаргаж, түүнийгээ бодит үр дүн болгох уралдааны бүртгэл танилцуулгын веб.",
+    },
   },
 ];
 

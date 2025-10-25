@@ -12,6 +12,7 @@ import { WORK_LIST, WORK_TEXT } from "@/lib/constants";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import Hero from "@/components/sections/Hero";
+import Image from "next/image";
 
 export default function Work() {
   const { lang, setLang } = useLanguage();
@@ -38,7 +39,7 @@ export default function Work() {
               <div className="bg-background absolute bottom-0 left-0 flex w-full items-center gap-2 z-10 -translate-x-3 p-1.5">
                 <div className="">
                   <StarIcon className="size-4" />
-                </div>{" "}
+                </div>
                 <motion.div initial={{ width: 0 }} animate={{ width: "60%" }} transition={{ duration: 1, delay: 1, ease: "easeInOut" }} className="w-1/3 lg:w-1/2 h-[1px] bg-white"></motion.div>
                 <Label size={"sm"} className="font-bold text-nowrap">
                   {text.status}
@@ -47,13 +48,14 @@ export default function Work() {
             </div>
           </div>
           <div className="grid md:grid-cols-2 border border-b-0 md:divide-x md:divide-y divide-border last:divide-y-0">
-            {WORK_LIST.map((item, index) => {
+            {WORK_LIST.map((item) => {
               return (
-                <div key={index} className="flex flex-col gap-3 px-4 py-8 border-b">
+                <div key={item.id} className="flex flex-col gap-3 px-4 py-8 border-b">
                   <Label size={"xs"} className="text-foreground-secondary opacity-80">
-                    Project__{item.id}
+                    Project__00{item.id}
                   </Label>
                   <div className="aspect-16/9 bg-black w-full rounded-lg overflow-hidden relative">
+                    <Image src={item.img} width={800} height={300} className="" alt={`Projects ${item.id}`} />
                     <Link href={item.url} target="_blank" className="absolute bottom-4 left-4">
                       <FollowButton variant={"outline"} className="backdrop-blur-xl bg-muted/70">
                         {text.view}

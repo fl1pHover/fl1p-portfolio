@@ -32,7 +32,7 @@ export default function Intro() {
             onAnimationComplete={handleEnterClick}
             className="flex flex-col items-center gap-4"
           >
-            <h1>{intro.title}</h1>
+            <h1 className="text-sm md:text-base">{intro.title}</h1>
             <div className="w-[300px] bg-border h-0.5">
               <motion.div initial={{ width: 20 }} animate={{ width: "100%" }} transition={{ duration: 2 }} className="bg-white h-full"></motion.div>
             </div>
