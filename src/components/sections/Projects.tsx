@@ -72,7 +72,7 @@ function StickyCard({ project, index, total, setActive }: { project: { id: numbe
 
   return (
     <div ref={ref} className="sticky top-0 h-[100vh] py-32 w-screen overflow-x-hidden flex justify-center items-center pointer-events-none">
-      <motion.div style={{ rotateX, y, scale, transformPerspective: 1200, transformOrigin: "bottom center", zIndex: total - index }} transition={{ stiffness: 10000 }} className={cn("aspect-square sm:aspect-16/9 w-[90%] sm:w-[80%] mx-auto rounded-2xl overflow-hidden shadow-2xl will-change-transform transition-transform bg-foreground")}>
+      <motion.div style={{ rotateX, y, scale, transformPerspective: 1200, transformOrigin: "bottom center", clipPath: "polygon(99% 0, 99% 6%, 100% 7%, 100% 100%, 6% 100%, 0 94%, 0 0)", zIndex: total - index }} transition={{ stiffness: 10000 }} className={cn("aspect-square sm:aspect-16/9 w-[90%] sm:w-[80%] mx-auto rounded-2xl overflow-hidden shadow-2xl will-change-transform transition-transform bg-foreground")}>
         <Image width={1200} height={1200} src={project.video} alt={project.title} className="w-full h-full object-cover object-top" />
       </motion.div>
     </div>
