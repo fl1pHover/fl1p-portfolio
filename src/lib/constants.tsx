@@ -241,14 +241,14 @@ export const CONTACT_TEXT = {
     title1: "Contact",
     title2: "information",
     description: "I may not yet have real-world work experience, but I have a strong desire to learn, grow, and gain practical skills. I created this portfolio to demonstrate my knowledge and abilities. If you are interested in hiring me, please feel free to contact me. I would be happy to collaborate with you. Thank you.",
-    button: "Currently not working",
+    button: "This form currently inactive",
     contactNote: "Can’t find an answer to your question? Feel free to write down.",
   },
   mn: {
     title1: "Холбоо барих",
     title2: "Мэдээлэл",
     description: "Бодит ажлын байранд ажиллаж байсан туршлага хараахан байхгүй ч, туршлага хуримтлуулах, суралцах, өөрийгөө хөгжүүлэх чин хүсэлтэй билээ. Энэхүү портфолиог мэдлэг, ур чадвараа батлан харуулах зорилгоор бүтээлээ. Хэрэв ажилд авах сонирхолтой байвал холбогдоорой гэж хүсье. Хамтран ажиллахад баяртай байх болно. Баярлалаа.",
-    button: "Одоогоор ажиллахгүй байгаа",
+    button: "Форм ажиллагаагүй байгаа",
     contactNote: "Асуултынхаа хариуг олж чадахгүй байвал чөлөөтэй бичээд үлдээгээрэй.",
   },
 };

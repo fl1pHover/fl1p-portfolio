@@ -93,7 +93,7 @@ export default function Contact() {
                 </div>
               ))}
               <div className="w-fit">
-                <FollowButton className="w-fit cursor-not-allowed pointer-events-none">{text.button}</FollowButton>
+                <FollowButton className="w-fit cursor-not-allowed pointer-events-none text-xs">{text.button}</FollowButton>
               </div>
             </motion.div>
           </div>
