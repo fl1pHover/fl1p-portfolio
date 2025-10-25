@@ -78,8 +78,8 @@ export default function Navbar() {
         <motion.div initial={{ y: -70, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -100, opacity: 0 }} transition={{ duration: 0.5 }} className="fixed top-0 left-0 w-full z-50 p-3">
           <div className="padding-global bg-background border rounded-md">
             <div className="py-[1.1em] flex md:grid grid-cols-5 justify-between items-center w-full">
-              <Link href="/" className="col-span-1 bro-header text-base!" scroll={true}>
-                fl1pDev
+              <Link href="/" className="col-span-1 bro-header text-base! lowercase!" scroll={true}>
+                Fl1p<span className="bro-header text-base!">Dev</span>
               </Link>
               <div className="col-span-3 md:flex items-center justify-center gap-4 text-xs uppercase hidden ">
                 {text.items.map((item, index) => (
